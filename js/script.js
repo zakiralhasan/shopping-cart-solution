@@ -61,3 +61,17 @@ document.getElementById('case-minus-btn').addEventListener('click', function(){
 
     setTextFieldValue('sub-total-display', subTotalPrice);
 });
+
+// check out button work section 
+document.getElementById('check-out-btn').addEventListener('click', function(){
+    const getSubTotalValue = getTxtFieldValue('sub-total-display');
+    const getTaxDisplay = getTxtFieldValue('tax-display');
+
+    const taxValue = (getSubTotalValue * .3).toFixed(2);
+    const taxFixedValue = parseFloat(taxValue);
+    setTextFieldValue('tax-display', taxFixedValue);
+
+    const totalValue = getSubTotalValue + taxFixedValue;
+    setTextFieldValue('total-display', totalValue);
+    
+});
